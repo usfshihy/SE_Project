@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p1 th:text="${inspector.majord} +' ' + ${inspector.minord} +' ' + ${inspector.pdsize} +' ' + ${inspector.pdtime}
+ +' ' + ${inspector.pdrate} +' ' + ${inspector.estyield} + ' updated!'" th:if="${action8.equals('insert8')}">updated></p1>
+
+<p1 th:text="${inspector.majord} +' ' + ${inspector.minord} +' ' + ${inspector.pdsize} +' ' + ${inspector.pdtime}
+ +' ' + ${inspector.pdrate} +' ' + ${inspector.estyield} + ' added!'" th:if="${action8.equals('save8')}">added></p1>
+<br><a href= "/inspectors">To the list</a>
+</body>
+</html>

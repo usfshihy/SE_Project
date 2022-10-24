@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form  th:action="@{'/defects/' + ${action9}}" method= "post" >
+
+    <input type=hidden th:value="${defect.id}" name= "id" th:if="${action9.equals('save9')}"/>
+
+    <label for="inputInspectorid">Inspectorid: </label>
+    <input type="text" id="inputInspectorid" name= "inspectorid" th:if="${action9.equals('insert9')}"/>
+    <input type="text" id="inputInspectorid" name= "inspectorid" th:value="${defect.inspectorid}" th:if="${action9.equals('save9')}"/>
+
+    <label for="inputInspectorname">Inspectorname: </label>
+    <input type="text" id="inputInspectorname" name= "inspectorname" th:if="${action9.equals('insert9')}"/>
+    <input type="text" id="inputInspectorname" name= "inspectorname" th:value="${defect.inspectorname}" th:if="${action9.equals('save9')}"/>
+
+    <label for="inputDefectdesc">Defectdesc: </label>
+    <input type="text" id="inputDefectdesc" name= "defectdesc" th:if="${action9.equals('insert9')}"/>
+    <input type="text" id="inputDefectdesc" name= "defectdesc" th:value="${defect.defectdesc}" th:if="${action9.equals('save9')}"/>
+
+    <label for="inputProjectid">Projectid: </label>
+    <input type="text" id="inputProjectid" name= "projectid" th:if="${action9.equals('insert9')}"/>
+    <input type="text" id="inputProjectid" name= "projectid" th:value="${defect.projectid}" th:if="${action9.equals('save9')}"/>
+
+    <label for="inputPhaseid">Phaseid: </label>
+    <input type="text" id="inputPhaseid" name= "phaseid" th:if="${action9.equals('insert9')}"/>
+    <input type="text" id="inputPhaseid" name= "phaseid" th:value="${defect.phaseid}" th:if="${action9.equals('save9')}"/>
+
+    <label for="inputJobid">Jobid: </label>
+    <input type="text" id="inputJobid" name= "jobid" th:if="${action9.equals('insert9')}"/>
+    <input type="text" id="inputJobid" name= "jobid" th:value="${defect.jobid}" th:if="${action9.equals('save9')}"/>
+
+    <label for="inputPriority">Priority: </label>
+    <input type="text" id="inputPriority" name= "priority" th:if="${action9.equals('insert9')}"/>
+    <input type="text" id="inputPriority" name= "priority" th:value="${defect.priority}" th:if="${action9.equals('save9')}"/>
+
+    <label for="inputIssuedate">Issuedate: </label>
+    <input type="text" id="inputIssuedate" name= "issuedate" th:if="${action9.equals('insert9')}"/>
+    <input type="text" id="inputIssuedate" name= "issuedate" th:value="${defect.issuedate}" th:if="${action9.equals('save9')}"/>
+
+    <label for="inputFixed">Fixed: </label>
+    <input type="text" id="inputFixed" name= "fixed" th:if="${action9.equals('insert9')}"/>
+    <input type="text" id="inputFixed" name= "fixed" th:value="${defect.fixed}" th:if="${action9.equals('save9')}"/>
+
+    <input type="submit" value="Add" th:if="${action9.equals('insert9')}"/>
+    <input type="submit" value="Edit" th:if="${action9.equals('save9')}"/>
+
+</form>
+</body>
+</html>

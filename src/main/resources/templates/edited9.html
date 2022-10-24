@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p1 th:text="${defect.inspectorid} +' ' + ${defect.inspectorname} +' ' + ${defect.defectdesc} +' ' + ${defect.projectid} +' ' + ${defect.phaseid} +' '
+  + ${defect.jobid} +' ' + ${defect.priority} +' ' + ${defect.issuedate} +' ' + ${defect.fixed} +' updated!'" th:if="${action9.equals('insert9')}">updated></p1>
+
+<p1 th:text="${defect.inspectorid} +' ' + ${defect.inspectorname} +' ' + ${defect.defectdesc} +' ' + ${defect.projectid} +' ' + ${defect.phaseid} +' '
+  + ${defect.jobid} +' ' + ${defect.priority} +' ' + ${defect.issuedate} +' ' + ${defect.fixed} +' added!'" th:if="${action9.equals('save9')}">added></p1>
+<br><a href= "/defects">To the list</a>
+</body>
+</html>

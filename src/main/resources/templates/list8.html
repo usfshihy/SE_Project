@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table class="inspectors" border= "2">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Majord</th>
+        <th>Minord</th>
+        <th>Pdsize</th>
+        <th>Pdtime</th>
+        <th>Pdrate</th>
+        <th>Estyield</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="inspector : ${inspectors}">
+        <td th:text="${inspector.id}">1</td>
+        <td th:text="${inspector.majord}">Majord</td>
+        <td th:text="${inspector.minord}">Minord</td>
+        <td th:text="${inspector.pdsize}">Pdsize</td>
+        <td th:text="${inspector.pdtime}">Pdtime</td>
+        <td th:text="${inspector.pdrate}">Pdrate</td>
+        <td th:text="${inspector.estyield}">Estyield</td>
+        <td> <a th:href="@{inspectors/edit8(id=${inspector.id})}">Edit</a></td>
+    </tr>
+    <td colspan="8" align="right"><a href="/inspectors/add8">Add</a></td>
+    </tbody>
+</table>
+<a href= "/">On the main</a>
+</body>
+</html>

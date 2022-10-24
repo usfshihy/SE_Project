@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form  th:action="@{'/inspectors/' + ${action8}}" method= "post" >
+
+    <input type=hidden th:value="${inspector.id}" name= "id" th:if="${action8.equals('save8')}"/>
+
+    <label for="inputMajord">Majord: </label>
+    <input type="text" id="inputMajord" name= "majord" th:if="${action8.equals('insert8')}"/>
+    <input type="text" id="inputMajord" name= "majord" th:value="${inspector.majord}" th:if="${action8.equals('save8')}"/>
+
+    <label for="inputMinord">Minord: </label>
+    <input type="text" id="inputMinord" name= "minord" th:if="${action8.equals('insert8')}"/>
+    <input type="text" id="inputMinord" name= "minord" th:value="${inspector.minord}" th:if="${action8.equals('save8')}"/>
+
+    <label for="inputPdsize">Pdsize: </label>
+    <input type="text" id="inputPdsize" name= "pdsize" th:if="${action8.equals('insert8')}"/>
+    <input type="text" id="inputPdsize" name= "pdsize" th:value="${inspector.pdsize}" th:if="${action8.equals('save8')}"/>
+
+    <label for="inputPdtime">Pdtime: </label>
+    <input type="text" id="inputPdtime" name= "pdtime" th:if="${action8.equals('insert8')}"/>
+    <input type="text" id="inputPdtime" name= "pdtime" th:value="${inspector.pdtime}" th:if="${action8.equals('save8')}"/>
+
+    <label for="inputPdrate">Pdrate: </label>
+    <input type="text" id="inputPdrate" name= "pdrate" th:if="${action8.equals('insert8')}"/>
+    <input type="text" id="inputPdrate" name= "pdrate" th:value="${inspector.pdrate}" th:if="${action8.equals('save8')}"/>
+
+    <label for="inputEstyield">Estyield: </label>
+    <input type="text" id="inputEstyield" name= "estyield" th:if="${action8.equals('insert8')}"/>
+    <input type="text" id="inputEstyield" name= "estyield" th:value="${inspector.estyield}" th:if="${action8.equals('save8')}"/>
+
+    <input type="submit" value="Add" th:if="${action8.equals('insert8')}"/>
+    <input type="submit" value="Edit" th:if="${action8.equals('save8')}"/>
+
+</form>
+</body>
+</html>

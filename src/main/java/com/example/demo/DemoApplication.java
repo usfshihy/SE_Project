@@ -31,8 +31,8 @@ public class DemoApplication {
 
     @PostConstruct
     public void init() throws Exception {
-        authorService.deleteAll();
-        bookService.deleteAll();
+       // authorService.deleteAll();
+      //  bookService.deleteAll();
         inspectorService.deleteAll();
         defectService.deleteAll();
         defectService.add("12","Youssef","Flaw 1 Desc","1","2","4","Low","10/19/2022","Yes");
@@ -43,7 +43,7 @@ public class DemoApplication {
         inspectorService.add("324","1607","23","78","2","67");
         inspectorService.add("561","2431","12","15","9","103");
         inspectorService.add("405","2604","41","66","7","81");
-        authorService.add("Arthur", "Conan Doyle");
+        /*authorService.add("Arthur", "Conan Doyle");
         authorService.add("Agatha", "Christie");
         authorService.add("Luc", "Besson");
         authorService.add("Christie", "Golden");
@@ -53,7 +53,7 @@ public class DemoApplication {
         bookService.add("Ten Little Niggers","978-5-9925-0837-6");
         bookService.add("Poirot Investigates","978-5-04-107820-1");
         bookService.add("Arthur and minipyts","978-90225-43-009");
-        bookService.add("'World of Warcraft","978-5-17-112285-0");
+        bookService.add("'World of Warcraft","978-5-17-112285-0");*/
     }
 
 }

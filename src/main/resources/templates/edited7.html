@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<p1 th:text="${phase.phaseName} +' ' + ${phase.phaseDesc} +' ' + ${phase.phaseLeaderid} +' ' + ${phase.teamSize} +' '
+  + ${phase.priority} +' ' + ${phase.dueDate} +' ' + ${phase.processType} + ' ' +${phase.projectid} + ' ' + ${phase.complete} +' updated!'" th:if="${action7.equals('insert7')}">updated></p1>
+
+<p1 th:text="${phase.phaseName} +' ' + ${phase.phaseDesc} +' ' + ${phase.phaseLeaderid} +' ' + ${phase.teamSize} +' '
+  + ${phase.priority} +' ' + ${phase.dueDate} +' ' + ${phase.processType} + ' ' +${phase.projectid} + ' ' + ${phase.complete} +' added!'" th:if="${action7.equals('save7')}">added></p1>
+<br><a href= "/phases">To the list</a>
+</body>
+</html>

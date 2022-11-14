@@ -31,3 +31,16 @@ create table defects(	id long not null auto_increment,
 						    issuedate varchar(32) not null,
 						    fixed varchar(32) not null,
                             primary key(id));
+
+drop table if exists phases;
+create table phases(	id long not null auto_increment,
+						    phaseName varchar(32) not null,
+						    phaseDec varchar(32) not null,
+						    phaseLeaderid varchar(32) not null,
+						    teamSize varchar(32) not null,
+						    priority varchar(32) not null,
+						    dueDate varchar(32) not null,
+						    processType varchar(32) not null,
+						    projectid varchar(32) not null,
+						    complete varchar(32) not null,
+                            primary key(id));

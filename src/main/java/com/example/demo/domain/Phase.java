@@ -5,7 +5,7 @@ import javax.persistence.*;
 
 import static com.example.demo.domain.Phase.*;
 
-@Entity @Table(name = COLLECTION_TITLE, uniqueConstraints= @UniqueConstraint(columnNames={FIELD_PHASEID, FIELD_PHASENAME, FIELD_PHASEDESC, FIELD_PHASELEADERID,
+@Entity @Table(name = COLLECTION_TITLE, uniqueConstraints= @UniqueConstraint(columnNames={FIELD_PHASENAME, FIELD_PHASEDESC, FIELD_PHASELEADERID,
         FIELD_TEAMSIZE, FIELD_PRIORITY, FIELD_DUEDATE, FIELD_PROCESSTYPE, FIELD_PROJECTID, FIELD_COMPLETE}))
 
 @Data @NoArgsConstructor @RequiredArgsConstructor
@@ -13,7 +13,6 @@ import static com.example.demo.domain.Phase.*;
 
 public class Phase {
     public static final String COLLECTION_TITLE = "Phases";
-    public static final String FIELD_PHASEID = "phaseid";
     public static final String FIELD_PHASENAME= "phaseName";
     public static final String FIELD_PHASEDESC = "phaseDesc";
     public static final String FIELD_PHASELEADERID = "phaseLeaderid";
@@ -27,10 +26,6 @@ public class Phase {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Setter(AccessLevel.NONE)
     private long id;
-
-    @Column(name = FIELD_PHASEID)
-    @NonNull
-    private String phaseid;
 
     @Column(name = FIELD_PHASENAME)
     @NonNull

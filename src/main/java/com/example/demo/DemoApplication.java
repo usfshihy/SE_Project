@@ -1,9 +1,6 @@
 package com.example.demo;
 
-import com.example.demo.service.AuthorService;
-import com.example.demo.service.BookService;
-import com.example.demo.service.InspectorService;
-import com.example.demo.service.DefectService;
+import com.example.demo.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -23,6 +20,10 @@ public class DemoApplication {
     @Autowired
     private DefectService defectService;
 
+//    private JobService jobService;
+    @Autowired
+    private PhaseService phaseService;
+
     public static void main(String[] args) throws Exception {
         SpringApplication.run(DemoApplication.class);
 
@@ -35,6 +36,7 @@ public class DemoApplication {
         bookService.deleteAll();
         inspectorService.deleteAll();
         defectService.deleteAll();
+        phaseService.deleteAll();
         defectService.add("12","Youssef","Flaw 1 Desc","1","2","4","Low","10/19/2022","Yes");
         defectService.add("7","Anhelina","Flaw 2 Desc","1","3","2","High","10/17/2022","No");
         defectService.add("4","Arsalan","Flaw 3 Desc","1","1","6","High","10/22/2022","Yes");
@@ -54,6 +56,8 @@ public class DemoApplication {
         bookService.add("Poirot Investigates","978-5-04-107820-1");
         bookService.add("Arthur and minipyts","978-90225-43-009");
         bookService.add("'World of Warcraft","978-5-17-112285-0");
+//        jobService.add("12","class1", "class 1 Desc", "11", "1", "09/11/2022", "2", "No");
+        phaseService.add("Phase1","this is phase 1", "1", "3 members", "High", "10/11/2022", "1", "1", "No");
     }
 
 }

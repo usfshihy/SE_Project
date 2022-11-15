@@ -1,6 +1,5 @@
 package com.example.demo.controller;
 
-
 import com.example.demo.domain.Inspector;
 import com.example.demo.service.InspectorService;
 import org.springframework.beans.factory.annotation.Autowired;

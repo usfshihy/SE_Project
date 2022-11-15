@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p1 th:text="${job.jobname} +' ' + ${job.jobdesc} +' ' + ${job.assignedworkerid} +' ' + ${job.priority}
+ +' ' + ${job.duedate} +' ' + ${job.phaseid} +' ' + ${job.complete} + ' updated!'" th:if="${action6.equals('insert6')}">updated></p1>
+
+<p1 th:text="${job.jobname} +' ' + ${job.jobdesc} +' ' + ${job.assignedworkerid} +' ' + ${job.priority}
+ +' ' + ${job.duedate} +' ' + ${job.phaseid} +' ' + ${job.complete} + ' added!'" th:if="${action6.equals('save6')}">added></p1>
+<br><a href= "/jobs">To the list</a>
+</body>
+</html>

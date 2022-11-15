@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form  th:action="@{'/jobs/' + ${action6}}" method= "post" >
+
+    <input type=hidden th:value="${job.id}" name= "id" th:if="${action6.equals('save6')}"/>
+
+    <label for="inputJobname">Jobname: </label>
+    <input type="text" id="inputJobname" name= "jobname" th:if="${action6.equals('insert6')}"/>
+    <input type="text" id="inputJobname" name= "jobname" th:value="${job.jobname}" th:if="${action6.equals('save6')}"/>
+
+    <label for="inputJobdesc">Jobdesc: </label>
+    <input type="text" id="inputJobdesc" name= "jobdesc" th:if="${action6.equals('insert6')}"/>
+    <input type="text" id="inputJobdesc" name= "jobdesc" th:value="${job.jobdesc}" th:if="${action6.equals('save6')}"/>
+
+    <label for="inputAssignedworkerid">Assignedworkerid: </label>
+    <input type="text" id="inputAssignedworkerid" name= "assignedworkerid" th:if="${action6.equals('insert6')}"/>
+    <input type="text" id="inputAssignedworkerid" name= "assignedworkerid" th:value="${job.assignedworkerid}" th:if="${action6.equals('save6')}"/>
+
+    <label for="inputPriority">Priority: </label>
+    <input type="text" id="inputPriority" name= "priority" th:if="${action6.equals('insert6')}"/>
+    <input type="text" id="inputPriority" name= "priority" th:value="${job.priority}" th:if="${action6.equals('save6')}"/>
+
+    <label for="inputDuedate">Duedate: </label>
+    <input type="text" id="inputDuedate" name= "duedate" th:if="${action6.equals('insert6')}"/>
+    <input type="text" id="inputDuedate" name= "duedate" th:value="${job.duedate}" th:if="${action6.equals('save6')}"/>
+
+    <label for="inputPhaseid">Phaseid: </label>
+    <input type="text" id="inputPhaseid" name= "phaseid" th:if="${action6.equals('insert6')}"/>
+    <input type="text" id="inputPhaseid" name= "phaseid" th:value="${job.phaseid}" th:if="${action6.equals('save6')}"/>
+
+    <label for="inputComplete">Complete: </label>
+    <input type="text" id="inputComplete" name= "complete" th:if="${action6.equals('insert6')}"/>
+    <input type="text" id="inputComplete" name= "complete" th:value="${job.complete}" th:if="${action6.equals('save6')}"/>
+
+    <input type="submit" value="Add" th:if="${action6.equals('insert6')}"/>
+    <input type="submit" value="Edit" th:if="${action6.equals('save6')}"/>
+
+</form>
+</body>
+</html>

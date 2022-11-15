@@ -50,17 +50,17 @@ public class PhaseController {
 
     @RequestMapping(value = "/phases/insert7", method = RequestMethod.POST)
     public String insert(
-                         @RequestParam(value="phaseName") String phaseName,
-                         @RequestParam(value="phaseDesc") String phaseDesc,
-                         @RequestParam(value="phaseLeaderid") String phaseLeaderid,
-                         @RequestParam(value="teamSize") String teamSize,
-                         @RequestParam(value="priority") String priority,
-                         @RequestParam(value="dueDate") String dueDate,
-                         @RequestParam(value = "processType") String processType,
-                         @RequestParam(value = "projectid") String projectid,
-                         @RequestParam(value="complete") String complete,
-                         Model model, HttpServletResponse response) throws Exception {
-        Phase added = phaseService.add(phaseName, phaseDesc, phaseLeaderid, teamSize, priority, dueDate, processType, projectid, complete);
+            @RequestParam(value="phasename") String phasename,
+            @RequestParam(value="phasedesc") String phasedesc,
+            @RequestParam(value="phaseleaderid") String phaseleaderid,
+            @RequestParam(value="teamsize") String teamsize,
+            @RequestParam(value="priority") String priority,
+            @RequestParam(value="duedate") String duedate,
+            @RequestParam(value = "processtype") String processtype,
+            @RequestParam(value = "projectid") String projectid,
+            @RequestParam(value="complete") String complete,
+            Model model, HttpServletResponse response) throws Exception {
+        Phase added = phaseService.add(phasename, phasedesc, phaseleaderid, teamsize, priority, duedate, processtype, projectid, complete);
         model.addAttribute("phase", added);
         model.addAttribute("action7", "insert7");
         response.setStatus(SC_CREATED );
@@ -69,18 +69,18 @@ public class PhaseController {
 
     @RequestMapping(value= "/phases/save7", method = RequestMethod.POST)
     public String save(@RequestParam("id") String id,
-                       @RequestParam(value="phaseName") String phaseName,
-                       @RequestParam(value="phaseDesc") String phaseDesc,
-                       @RequestParam(value="phaseLeaderid") String phaseLeaderid,
-                       @RequestParam(value="teamSize") String teamSize,
+                       @RequestParam(value="phasename") String phasename,
+                       @RequestParam(value="phasedesc") String phasedesc,
+                       @RequestParam(value="phaseleaderid") String phaseleaderid,
+                       @RequestParam(value="teamsize") String teamsize,
                        @RequestParam(value="priority") String priority,
-                       @RequestParam(value="dueDate") String dueDate,
-                       @RequestParam(value = "processType") String processType,
+                       @RequestParam(value="duedate") String duedate,
+                       @RequestParam(value = "processtype") String processtype,
                        @RequestParam(value = "projectid") String projectid,
                        @RequestParam(value="complete") String complete,
                        Model model, HttpServletResponse  response) throws Exception {
         Phase phase = phaseService.findById(new Long(id));
-        Phase updated = phaseService.update(phase.getId(), phaseName, phaseDesc, phaseLeaderid, teamSize, priority, dueDate, processType, projectid, complete);
+        Phase updated = phaseService.update(phase.getId(), phasename, phasedesc, phaseleaderid, teamsize, priority, duedate, processtype, projectid, complete);
         model.addAttribute("phase", updated);
         model.addAttribute("action7", "save7");
         response.setStatus(SC_ACCEPTED );

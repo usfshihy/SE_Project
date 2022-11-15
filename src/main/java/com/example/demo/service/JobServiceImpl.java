@@ -5,20 +5,23 @@ import com.example.demo.repository.JobRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.stereotype.Service;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import static com.example.demo.service.HandlerException.EMPTY_RESULT_BY_ID_ERROR_STRING;
 import static com.example.demo.service.HandlerException.handlerException;
 
-public class JobServiceImpl implements JobService{
+@Service
+public class JobServiceImpl implements JobService {
     @Autowired
     private JobRepository jobRepository;
 
 
     @Override
-    public Job add(String jobName, String jobDesc, String assignedWorkerid, String priority, String dueDate, String phaseid, String complete) throws Exception {
-        Job job = new Job(jobName, jobDesc, assignedWorkerid, priority, dueDate, phaseid, complete);
+    public Job add(String jobname, String jobdesc, String assignedworkerid, String priority, String duedate, String phaseid, String complete) throws Exception {
+        Job job = new Job(jobname, jobdesc, assignedworkerid, priority, duedate, phaseid, complete);
         try {
             jobRepository.save(job);
         }
@@ -30,7 +33,7 @@ public class JobServiceImpl implements JobService{
 
     @Override
     public long getCount() {
-        return 0;
+        return jobRepository.count();
     }
 
     @Override
@@ -46,11 +49,11 @@ public class JobServiceImpl implements JobService{
     }
 
     @Override
-    public List<Job> find(String jobName, String jobDesc, String assignedWorkerid, String priority, String dueDate, String phaseid, String complete) throws Exception {
+    public List<Job> find(String jobname, String jobdesc, String assignedworkerid, String priority, String duedate, String phaseid, String complete) throws Exception {
         List<Job> jobs = new ArrayList<>();
         try {
-            jobRepository.findByJobnameOrJobdescOrAssignedWorkeridOrPriorityOrDuedateOrPhaseidOrComplete(jobName, jobDesc, assignedWorkerid,
-                    priority, dueDate, phaseid, complete).forEach(jobs::add);
+            jobRepository.findByJobnameOrJobdescOrAssignedworkeridOrPriorityOrDuedateOrPhaseidOrComplete(jobname, jobdesc, assignedworkerid,
+                    priority, duedate, phaseid, complete).forEach(jobs::add);
         }
         catch (DataIntegrityViolationException exception) {
             handlerException(exception, Job.class.getSimpleName());
@@ -59,19 +62,19 @@ public class JobServiceImpl implements JobService{
     }
 
     @Override
-    public Job update(long id, String jobName, String jobDesc, String assignedWorkerid, String priority, String dueDate, String phaseid, String complete) throws Exception {
+    public Job update(long id, String jobname, String jobdesc, String assignedworkerid, String priority, String duedate, String phaseid, String complete) throws Exception {
         Job job = jobRepository.findById(id).orElseThrow(()->
                 new IllegalArgumentException(String.format(EMPTY_RESULT_BY_ID_ERROR_STRING, Job.class.getSimpleName(), id)));
-        if(jobName!= null)
-            job.setJobName(jobName);
-        if(jobDesc!= null)
-            job.setJobDesc(jobDesc);
-        if(assignedWorkerid!= null)
-            job.setAssignedWorkerid(assignedWorkerid);
+        if(jobname!= null)
+            job.setJobname(jobname);
+        if(jobdesc!= null)
+            job.setJobdesc(jobdesc);
+        if(assignedworkerid!= null)
+            job.setAssignedworkerid(assignedworkerid);
         if(priority!= null)
             job.setPriority(priority);
-        if(dueDate!= null)
-            job.setDueDate(dueDate);
+        if(duedate!= null)
+            job.setDuedate(duedate);
         if(phaseid!= null)
             job.setPhaseid(phaseid);
         if(complete!= null)
@@ -89,5 +92,4 @@ public class JobServiceImpl implements JobService{
     public void deleteAll() {
         jobRepository.deleteAll();
     }
-
 }

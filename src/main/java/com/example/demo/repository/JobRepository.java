@@ -4,6 +4,5 @@ import com.example.demo.domain.Job;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 public interface JobRepository extends PagingAndSortingRepository<Job, Long> {
-    Iterable<Job> findByJobnameOrJobdescOrAssignedWorkeridOrPriorityOrDuedateOrPhaseidOrComplete(String jobName,
-                                                                                                     String jobDesc, String assignedWorkerid, String priority, String dueDate, String phaseid, String complete);
+    Iterable<Job> findByJobnameOrJobdescOrAssignedworkeridOrPriorityOrDuedateOrPhaseidOrComplete(String jobname, String jobdesc, String assignedworkerid, String priority, String duedate, String phaseid, String complete);
 }

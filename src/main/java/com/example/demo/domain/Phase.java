@@ -13,13 +13,13 @@ import static com.example.demo.domain.Phase.*;
 
 public class Phase {
     public static final String COLLECTION_TITLE = "Phases";
-    public static final String FIELD_PHASENAME= "phaseName";
-    public static final String FIELD_PHASEDESC = "phaseDesc";
-    public static final String FIELD_PHASELEADERID = "phaseLeaderid";
-    public static final String FIELD_TEAMSIZE = "teamSize";
+    public static final String FIELD_PHASENAME= "phasename";
+    public static final String FIELD_PHASEDESC = "phasedesc";
+    public static final String FIELD_PHASELEADERID = "phaseleaderid";
+    public static final String FIELD_TEAMSIZE = "teamsize";
     public static final String FIELD_PRIORITY = "priority";
-    public static final String FIELD_DUEDATE = "dueDate";
-    public static final String FIELD_PROCESSTYPE = "processType";
+    public static final String FIELD_DUEDATE = "duedate";
+    public static final String FIELD_PROCESSTYPE = "processtype";
     public static final String FIELD_PROJECTID = "projectid";
     public static final String FIELD_COMPLETE = "complete";
 
@@ -29,19 +29,19 @@ public class Phase {
 
     @Column(name = FIELD_PHASENAME)
     @NonNull
-    private String phaseName;
+    private String phasename;
 
     @Column(name = FIELD_PHASEDESC)
     @NonNull
-    private String phaseDesc;
+    private String phasedesc;
 
     @Column(name = FIELD_PHASELEADERID)
     @NonNull
-    private String phaseLeaderid;
+    private String phaseleaderid;
 
     @Column(name = FIELD_TEAMSIZE)
     @NonNull
-    private String teamSize;
+    private String teamsize;
 
     @Column(name = FIELD_PRIORITY)
     @NonNull
@@ -49,11 +49,11 @@ public class Phase {
 
     @Column(name = FIELD_DUEDATE)
     @NonNull
-    private String dueDate;
+    private String duedate;
 
     @Column(name = FIELD_PROCESSTYPE)
     @NonNull
-    private String processType;
+    private String processtype;
 
     @Column(name = FIELD_PROJECTID)
     @NonNull

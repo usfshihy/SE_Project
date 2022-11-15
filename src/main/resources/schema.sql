@@ -32,15 +32,26 @@ create table defects(	id long not null auto_increment,
 						    fixed varchar(32) not null,
                             primary key(id));
 
+
 drop table if exists phases;
 create table phases(	id long not null auto_increment,
-                        phaseName varchar(32) not null,
-                        phaseDec varchar(32) not null,
-                        phaseLeaderid varchar(32) not null,
-                        teamSize varchar(32) not null,
-                        priority varchar(32) not null,
-                        dueDate varchar(32) not null,
-                        processType varchar(32) not null,
-                        projectid varchar(32) not null,
-                        complete varchar(32) not null,
-                        primary key(id));
+						    phasename varchar(32) not null,
+						    phasedesc varchar(32) not null,
+						    phaseleaderid varchar(32) not null,
+						    teamsize varchar(32) not null,
+						    priority varchar(32) not null,
+						    duedate varchar(32) not null,
+						    processtype varchar(32) not null,
+						    projectid varchar(32) not null,
+						    complete varchar(32) not null,
+                            primary key(id));
+drop table if exists jobs;
+create table jobs(	id long not null auto_increment,
+						    jobname varchar(32) not null,
+						    jobdesc varchar(32) not null,
+						    assignedworkerid varchar(32) not null,
+						    priority varchar(32) not null,
+						    duedate varchar(32) not null,
+						    phaseid varchar(32) not null,
+						    complete varchar(32) not null,
+                            primary key(id));

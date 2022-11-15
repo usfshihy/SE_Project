@@ -18,9 +18,11 @@ public class PhaseServiceImpl implements PhaseService{
 
     @Autowired
     private PhaseRepository phaseRepository;
+
     @Override
-    public Phase add(String phaseName, String phaseDesc, String phaseLeaderid, String teamSize, String priority, String dueDate, String processType, String projectid, String complete) throws Exception {
-        Phase phase = new Phase(phaseName, phaseDesc, phaseLeaderid, teamSize, priority, dueDate, processType, projectid, complete);
+    public Phase add(String phasename, String phasedesc, String phaseleaderid, String teamsize, String priority,
+                     String duedate, String processtype, String projectid, String complete) throws Exception {
+        Phase phase = new Phase(phasename, phasedesc, phaseleaderid, teamsize, priority, duedate, processtype, projectid, complete);
         try {
             phaseRepository.save(phase);
         }
@@ -48,10 +50,12 @@ public class PhaseServiceImpl implements PhaseService{
     }
 
     @Override
-    public List<Phase> find(String phaseName, String phaseDesc, String phaseLeaderid, String teamSize, String priority, String dueDate, String processType, String projectid, String complete) throws Exception {
+    public List<Phase> find(String phasename, String phasedesc, String phaseleaderid, String teamsize, String priority,
+                            String duedate, String processtype, String projectid, String complete) throws Exception {
         List<Phase> phases = new ArrayList<>();
         try{
-            phaseRepository.findByPhasenameOrPhasedescOrPhaseLeaderidOrTeamsizeOrPriorityOrDuedateOrProcesstypeOrProjectidOrComplete(phaseName, phaseDesc, phaseLeaderid, teamSize, priority, dueDate, processType, projectid, complete).forEach(phases::add);
+            phaseRepository.findByPhasenameOrPhasedescOrPhaseleaderidOrTeamsizeOrPriorityOrDuedateOrProcesstypeOrProjectidOrComplete(phasename, phasedesc,
+                    phaseleaderid, teamsize, priority, duedate, processtype, projectid, complete).forEach(phases::add);
         }
         catch (DataIntegrityViolationException exception) {
             handlerException(exception, Phase.class.getSimpleName());
@@ -60,23 +64,24 @@ public class PhaseServiceImpl implements PhaseService{
     }
 
     @Override
-    public Phase update(long id, String phaseName, String phaseDesc, String phaseLeaderid, String teamSize, String priority, String dueDate, String processType, String projectid, String complete) throws Exception {
+    public Phase update(long id, String phasename, String phasedesc, String phaseleaderid, String teamsize, String priority,
+                        String duedate, String processtype, String projectid, String complete) throws Exception {
         Phase phase = phaseRepository.findById(id).orElseThrow(()->
                 new IllegalArgumentException(String.format(EMPTY_RESULT_BY_ID_ERROR_STRING, Phase.class.getSimpleName(), id)));
-        if(phaseName!= null)
-            phase.setPhaseName(phaseName);
-        if(phaseDesc!= null)
-            phase.setPhaseDesc(phaseDesc);
-        if(phaseLeaderid!= null)
-            phase.setPhaseLeaderid(phaseLeaderid);
-        if(teamSize!= null)
-            phase.setTeamSize(teamSize);
+        if(phasename!= null)
+            phase.setPhasename(phasename);
+        if(phasedesc!= null)
+            phase.setPhasedesc(phasedesc);
+        if(phaseleaderid!= null)
+            phase.setPhaseleaderid(phaseleaderid);
+        if(teamsize!= null)
+            phase.setTeamsize(teamsize);
         if(priority!= null)
             phase.setPriority(priority);
-        if(dueDate!= null)
-            phase.setDueDate(dueDate);
-        if(processType!= null)
-            phase.setProcessType(processType);
+        if(duedate!= null)
+            phase.setDuedate(duedate);
+        if(processtype!= null)
+            phase.setProcesstype(processtype);
         if(projectid!= null)
             phase.setProjectid(projectid);
         if(complete!= null)

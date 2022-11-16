@@ -10,6 +10,22 @@
     <input type=hidden th:value="${phase.id}" name= "id" th:if="${action7.equals('save7')}"/>
 
     <label for="inputPhasename">Phasename: </label>
+
+    <input type="text" id="inputPhasename" name= "phaseName" th:if="${action7.equals('insert7')}"/>
+    <input type="text" id="inputPhasename" name= "phaseName" th:value="${phase.phaseName}" th:if="${action7.equals('save7')}"/>
+
+    <label for="inputPhasedesc">Phasedesc: </label>
+    <input type="text" id="inputPhasedesc" name= "phaseDesc" th:if="${action7.equals('insert7')}"/>
+    <input type="text" id="inputPhasedesc" name= "phaseDesc" th:value="${phase.phaseDesc}" th:if="${action7.equals('save7')}"/>
+
+    <label for="inputPhaseLeaderid">PhaseLeaderid: </label>
+    <input type="text" id="inputPhaseLeaderid" name= "phaseLeaderid" th:if="${action7.equals('insert7')}"/>
+    <input type="text" id="inputPhaseLeaderid" name= "phaseLeaderid" th:value="${phase.phaseLeaderid}" th:if="${action7.equals('save7')}"/>
+
+    <label for="inputTeamsize">Teamsize: </label>
+    <input type="text" id="inputTeamsize" name= "teamSize" th:if="${action7.equals('insert7')}"/>
+    <input type="text" id="inputTeamsize" name= "teamSize" th:value="${phase.teamSize}" th:if="${action7.equals('save7')}"/>
+
     <input type="text" id="inputPhasename" name= "phasename" th:if="${action7.equals('insert7')}"/>
     <input type="text" id="inputPhasename" name= "phasename" th:value="${phase.phasename}" th:if="${action7.equals('save7')}"/>
 

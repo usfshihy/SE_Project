@@ -19,8 +19,8 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="inspector : ${inspectors}">
-        <td th:text="${inspector.id}">1</td>
+    <tr th:each="job : ${jobs}">
+        <td th:text="${job.id}">1</td>
         <td th:text="${job.jobname}">Jobname</td>
         <td th:text="${job.jobdesc}">Jobdesc</td>
         <td th:text="${job.assignedworkerid}">Assignedworkerid</td>

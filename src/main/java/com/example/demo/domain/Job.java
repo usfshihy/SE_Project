@@ -6,8 +6,7 @@ import javax.persistence.*;
 
 import static com.example.demo.domain.Job.*;
 
-@Entity
-@Table(name = COLLECTION_TITLE, uniqueConstraints= @UniqueConstraint(columnNames={FIELD_JOBNAME, FIELD_JOBDESC, FIELD_ASSIGNEDWORKERID,
+@Entity @Table(name = COLLECTION_TITLE, uniqueConstraints= @UniqueConstraint(columnNames={FIELD_JOBNAME, FIELD_JOBDESC, FIELD_ASSIGNEDWORKERID,
         FIELD_PRIORITY, FIELD_DUEDATE, FIELD_PHASEID, FIELD_COMPLETE}))
 
 @Data @NoArgsConstructor @RequiredArgsConstructor

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form  th:action="@{'/projects/' + ${action5}}" method= "post" >
+
+    <input type=hidden th:value="${project.id}" name= "id" th:if="${action5.equals('save5')}"/>
+
+    <label for="inputName">inputName: </label>
+    <input type="text" id="inputName" name= "name" th:if="${action5.equals('insert5')}"/>
+    <input type="text" id="inputName" name= "name" th:value="${project.name}" th:if="${action5.equals('save5')}"/>
+
+    <label for="inputDesc">inputDesc: </label>
+    <input type="text" id="inputDesc" name= "desc" th:if="${action5.equals('insert5')}"/>
+    <input type="text" id="inputDesc" name= "desc" th:value="${project.desc}" th:if="${action5.equals('save5')}"/>
+
+    <label for="inputProjectleaderid">inputProjectleaderid: </label>
+    <input type="text" id="inputProjectleaderid" name= "projectleaderid" th:if="${action5.equals('insert5')}"/>
+    <input type="text" id="inputProjectleaderid" name= "projectleaderid" th:value="${project.projectleaderid}" th:if="${action5.equals('save5')}"/>
+
+    <label for="inputCategory">inputCategory: </label>
+    <input type="text" id="inputCategory" name= "category" th:if="${action5.equals('insert5')}"/>
+    <input type="text" id="inputCategory" name= "category" th:value="${project.category}" th:if="${action5.equals('save5')}"/>
+
+    <label for="inputCompany">inputCompany: </label>
+    <input type="text" id="inputCompany" name= "company" th:if="${action5.equals('insert5')}"/>
+    <input type="text" id="inputCompany" name= "company" th:value="${project.company}" th:if="${action5.equals('save5')}"/>
+
+    <label for="inputBranch">inputBranch: </label>
+    <input type="text" id="inputBranch" name= "branch" th:if="${action5.equals('insert5')}"/>
+    <input type="text" id="inputBranch" name= "branch" th:value="${project.branch}" th:if="${action5.equals('save5')}"/>
+
+    <label for="inputPriority">inputPriority: </label>
+    <input type="text" id="inputPriority" name= "priority" th:if="${action5.equals('insert5')}"/>
+    <input type="text" id="inputPriority" name= "priority" th:value="${project.priority}" th:if="${action5.equals('save5')}"/>
+
+    <label for="inputProcesstype">inputProcesstype: </label>
+    <input type="text" id="inputProcesstype" name= "processtype" th:if="${action5.equals('insert5')}"/>
+    <input type="text" id="inputProcesstype" name= "processtype" th:value="${project.processtype}" th:if="${action5.equals('save5')}"/>
+
+    <label for="inputDuebydate">inputDuebydate: </label>
+    <input type="text" id="inputDuebydate" name= "duebydate" th:if="${action5.equals('insert5')}"/>
+    <input type="text" id="inputDuebydate" name= "duebydate" th:value="${project.duebydate}" th:if="${action5.equals('save5')}"/>
+
+    <label for="inputIscomplete">inputIscomplete: </label>
+    <input type="text" id="inputIscomplete" name= "iscomplete" th:if="${action5.equals('insert5')}"/>
+    <input type="text" id="inputIscomplete" name= "iscomplete" th:value="${project.iscomplete}" th:if="${action5.equals('save5')}"/>
+
+    <input type="submit" value="Add" th:if="${action5.equals('insert5')}"/>
+    <input type="submit" value="Edit" th:if="${action5.equals('save5')}"/>
+
+</form>
+</body>
+</html>

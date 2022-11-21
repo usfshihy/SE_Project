@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p1 th:text="${project.name} +' ' + ${project.desc} +' ' + ${project.projectleaderid} +' ' + ${project.category} +' ' + ${project.company} +' ' + ${project.branch}
++' ' + ${project.priority} +' ' + ${project.processtype} +' ' + ${project.duebydate}+' ' + ${project.iscomplete} + ' updated!'" th:if="${action5.equals('insert5')}">updated></p1>
+
+<p1 th:text="${project.name} +' ' + ${project.desc} +' ' + ${project.projectleaderid} +' ' + ${project.category} +' ' + ${project.company} +' ' + ${project.branch}
++' ' + ${project.priority} +' ' + ${project.processtype} +' ' + ${project.duebydate}+' ' + ${project.iscomplete} + ' added!'" th:if="${action5.equals('save5')}">added></p1>
+<br><a href= "/projects">To the list</a>
+</body>
+</html>

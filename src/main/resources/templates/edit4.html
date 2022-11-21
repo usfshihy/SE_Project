@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form  th:action="@{'/members/' + ${action4}}" method= "post" >
+
+    <input type=hidden th:value="${member.id}" name= "id" th:if="${action4.equals('save4')}"/>
+
+    <label for="inputFirstname">inputFirstname: </label>
+    <input type="text" id="inputFirstname" name= "firstname" th:if="${action4.equals('insert4')}"/>
+    <input type="text" id="inputFirstname" name= "firstname" th:value="${member.firstname}" th:if="${action4.equals('save4')}"/>
+
+    <label for="inputLastname">inputLastname: </label>
+    <input type="text" id="inputLastname" name= "lastname" th:if="${action4.equals('insert4')}"/>
+    <input type="text" id="inputLastname" name= "lastname" th:value="${member.lastname}" th:if="${action4.equals('save4')}"/>
+
+    <label for="inputCompany">inputCompany: </label>
+    <input type="text" id="inputCompany" name= "company" th:if="${action4.equals('insert4')}"/>
+    <input type="text" id="inputCompany" name= "company" th:value="${member.company}" th:if="${action4.equals('save4')}"/>
+
+    <label for="inputBranch">inputBranch: </label>
+    <input type="text" id="inputBranch" name= "branch" th:if="${action4.equals('insert4')}"/>
+    <input type="text" id="inputBranch" name= "branch" th:value="${member.branch}" th:if="${action4.equals('save4')}"/>
+
+    <label for="inputAddress">inputAddress: </label>
+    <input type="text" id="inputAddress" name= "address" th:if="${action4.equals('insert4')}"/>
+    <input type="text" id="inputAddress" name= "address" th:value="${member.address}" th:if="${action4.equals('save4')}"/>
+
+    <label for="inputCompanyposition">inputCompanyposition: </label>
+    <input type="text" id="inputCompanyposition" name= "companyposition" th:if="${action4.equals('insert4')}"/>
+    <input type="text" id="inputCompanyposition" name= "companyposition" th:value="${member.companyposition}" th:if="${action4.equals('save4')}"/>
+
+    <label for="inputDateofbirth">inputDateofbirth: </label>
+    <input type="text" id="inputDateofbirth" name= "dateofbirth" th:if="${action4.equals('insert4')}"/>
+    <input type="text" id="inputDateofbirth" name= "dateofbirth" th:value="${member.dateofbirth}" th:if="${action4.equals('save4')}"/>
+
+    <label for="inputDateofjoiningcompany">inputDateofjoiningcompany: </label>
+    <input type="text" id="inputDateofjoiningcompany" name= "dateofjoiningcompany" th:if="${action4.equals('insert4')}"/>
+    <input type="text" id="inputDateofjoiningcompany" name= "dateofjoiningcompany" th:value="${member.dateofjoiningcompany}" th:if="${action4.equals('save4')}"/>
+
+
+    <input type="submit" value="Add" th:if="${action4.equals('insert4')}"/>
+    <input type="submit" value="Edit" th:if="${action4.equals('save4')}"/>
+
+</form>
+</body>
+</html>

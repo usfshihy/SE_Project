@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p1 th:text="${member.firstname} +' ' + ${member.lastname} +' ' + ${member.company} +' ' + ${member.branch}
+ +' ' + ${member.address} +' ' + ${member.companyposition} +' ' + ${member.dateofbirth} +' ' + ${member.dateofjoiningcompany}
+  + ' updated!'" th:if="${action4.equals('insert4')}">updated></p1>
+
+<p1 th:text="${member.firstname} +' ' + ${member.lastname} +' ' + ${member.company} +' ' + ${member.branch}
+ +' ' + ${member.address} +' ' + ${member.companyposition} +' ' + ${member.dateofbirth} +' ' + ${member.dateofjoiningcompany}
+  + ' added!'" th:if="${action4.equals('save4')}">added></p1>
+<br><a href= "/members">To the list</a>
+</body>
+</html>

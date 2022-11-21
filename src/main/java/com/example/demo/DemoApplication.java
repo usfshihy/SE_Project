@@ -1,9 +1,6 @@
 package com.example.demo;
 
-import com.example.demo.service.JobService;
-import com.example.demo.service.PhaseService;
-import com.example.demo.service.InspectorService;
-import com.example.demo.service.DefectService;
+import com.example.demo.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -25,6 +22,12 @@ public class DemoApplication {
     @Autowired
     private PhaseService phaseService;
 
+    @Autowired
+    private MemberService memberService;
+
+    @Autowired
+    private ProjectService projectService;
+
     public static void main(String[] args) throws Exception {
         SpringApplication.run(DemoApplication.class);
 
@@ -36,6 +39,8 @@ public class DemoApplication {
         phaseService.deleteAll();
         inspectorService.deleteAll();
         defectService.deleteAll();
+        projectService.deleteAll();
+        memberService.deleteAll();
         defectService.add("12","Youssef","Flaw 1 Desc","1","2","4","Low","10/19/2022","Yes");
         defectService.add("7","Anhelina","Flaw 2 Desc","1","3","2","High","10/17/2022","No");
         defectService.add("4","Arsalan","Flaw 3 Desc","1","1","6","High","10/22/2022","Yes");

@@ -1,15 +1,178 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<p1 th:text="${project.name} +' ' + ${project.desc} +' ' + ${project.projectleaderid} +' ' + ${project.category} +' ' + ${project.company} +' ' + ${project.branch}
-+' ' + ${project.priority} +' ' + ${project.processtype} +' ' + ${project.duebydate}+' ' + ${project.iscomplete} + ' updated!'" th:if="${action5.equals('insert5')}">updated></p1>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Title</title>
+        <!-- inheriting bootstrap classes and nav styles -->
+        <link th:replace="~{fragments/navbar :: nav_style}">
 
-<p1 th:text="${project.name} +' ' + ${project.desc} +' ' + ${project.projectleaderid} +' ' + ${project.category} +' ' + ${project.company} +' ' + ${project.branch}
-+' ' + ${project.priority} +' ' + ${project.processtype} +' ' + ${project.duebydate}+' ' + ${project.iscomplete} + ' added!'" th:if="${action5.equals('save5')}">added></p1>
-<br><a href= "/projects">To the list</a>
-</body>
+        <!-- inheriting table styling -->
+        <link rel="stylesheet" href="table_style.css">
+    </head>
+    <body>
+        <!-- inheriting navbar -->
+        <div th:replace="~{fragments/navbar :: navbar}"></div>
+
+        <div class="container edit_div">
+            <div class="container form_div">
+                <p1 th:text="${project.name} +' ' + ${project.desc} +' ' + ${project.projectleaderid} +' ' + ${project.category} +' ' + ${project.company} +' ' + ${project.branch}
+                +' ' + ${project.priority} +' ' + ${project.processtype} +' ' + ${project.duebydate}+' ' + ${project.iscomplete} + ' updated!'" th:if="${action5.equals('insert5')}">updated></p1>
+
+                <p1 th:text="${project.name} +' ' + ${project.desc} +' ' + ${project.projectleaderid} +' ' + ${project.category} +' ' + ${project.company} +' ' + ${project.branch}
+                +' ' + ${project.priority} +' ' + ${project.processtype} +' ' + ${project.duebydate}+' ' + ${project.iscomplete} + ' added!'" th:if="${action5.equals('save5')}">added></p1>
+            </div>
+        </div>
+        <div class="container">
+            <img class="sidwimg" src="https://img.freepik.com/free-vector/server-concept-illustration_114360-287.jpg?w=1060&t=st=1670152835~exp=1670153435~hmac=be7d49a38c617973f0b094e20ec802607ba7e6963aac337a0d1ca92f811c11e1">
+        </div>
+
+        <!-- inheriting footer -->
+        <div th:replace="~{fragments/footer :: footer}"></div>
+
+        <!-- inheriting style scripts -->
+        <script th:replace="~{fragments/navbar :: script}"></script>
+    </body>
+
+    <style>
+.form_div{
+    padding: 40px;
+}
+.edit_div{
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    /* width */
+::-webkit-scrollbar {
+    width: 6px;
+  }
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #bfdeff;
+  }
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #80bdff;
+  }
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+.navbar{
+    padding-left: 10%;
+    padding-right: 10%;
+    box-shadow: 0 8px 40px -6px rgb(118, 200, 255);
+}
+
+.navbar-nav{
+    width: 100%;
+}
+
+.link-nav-custom{
+    border-bottom: solid;
+    border-color: #007bff;
+    border-bottom-width: 2px;
+}
+.link-nav-custom:hover{
+    border-bottom: solid;
+    border-bottom-width: 2px;
+    border-color: #f0f8ff;
+    transition: 0.3s;
+}
+
+.app-button-main{
+    font-weight: bold;
+    margin-right: 12px;
+    background-color: #f0f8ff;
+    color: #007bff;
+}
+
+.app-button-main:hover{
+    font-weight: bold;
+    margin-right: 12px;
+    background-color: #f0f8ff;
+    color: #007bff;
+    border-width: 10px;
+    border-color: aliceblue;
+}
+
+.bottom-div{
+    background-color: #007bff;
+    height: 22vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .bottom-div{
+    color: aliceblue;
+  }
+  h3{
+    padding-top: 2vh;
+  }
+  .text-contact-us{
+    font-size: small;
+    margin-bottom: 0px;
+  }
+
+  .footer-columns{
+    height: 20vh;
+    font-size: 4vh;
+    border-right: #ffffff80 solid 0.1px;
+  }
+  .footer-bottom{
+    width: 100%;
+    padding: 1vh;
+    background-color: #007bff;
+    height: auto;
+  }
+  .footer-bottom-child{
+    font-size: small;
+    padding-top: 1vh;
+    color: aliceblue;
+    border-top: #ffffff80 solid 0.1px;
+  }
+  .footer-bottom-links{
+    color: aliceblue;
+  }
+  .footer-bottom-links:hover{
+    color: aliceblue;
+  }
+  .fbl{
+    padding-left: 2vh;
+    margin-left: 2vh;
+    border-left: #ffffff solid 1px;
+  }
+  .sidwft{
+    width: 40%;
+  }
+  .div-sidwft{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .edit-button{
+      border: 1px solid #0073ff;
+      background-color: #FFFFFF;
+      border-radius: 4px;
+      color: #0073ff;
+  }
+  .edit-button:hover{
+      color: aliceblue;
+      background-color: #0073ff;
+      transition: 0.3s;
+  }
+
+  .add-button{
+      color: aliceblue;
+      background-color: #00aa41;
+  }
+  .sidwimg{
+      position: relative;
+      max-width: 120%;
+  }
+</style>
 </html>

@@ -1,0 +1,15 @@
+.policy-container{
+    padding-top: 4vh;
+    padding-bottom: 10vh;
+}
+
+.policy-bg-div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.privacy-policy-bg{
+    width: 50vh;
+    position: relative;
+}

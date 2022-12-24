@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Library</title>
+
+        <!-- inheriting bootstrap classes and nav styles -->
+        <link th:replace="~{fragments/navbar :: nav_style}">
+
+        <!-- inheriting table styling -->
+        <link rel="stylesheet" href="index_style.css">
+    </head>
+    <body>
+        <!-- inheriting navbar -->
+        <div th:replace="~{fragments/navbar :: navbar}"></div>
+
+
+        <div class="landing-page">
+            <div th:replace="~{fragments/navbar :: sidenav}"></div>
+            <div class="container heading-div">
+                <div class="container">
+                    <h1>
+                        Dashboard
+                    </h1>
+                    <p>
+                        Software Inspection Data-Web is a web based software inspection software where users can test, inspect and make a report on their inspections.
+                    </p>
+                </div>
+                <div class="container">
+                    <img src="../static/images/dashboardimg.webp" alt="" class="sidwimg" th:src="@{images/dashboardimg.webp}">
+                </div>
+            </div>
+        </div>
+
+
+        <!-- inheriting footer -->
+        <div th:replace="~{fragments/footer :: footer}"></div>
+
+        <!-- inheriting style scripts -->
+        <script th:replace="~{fragments/navbar :: script}"></script>
+    </body>
+</html>

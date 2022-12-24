@@ -1,50 +1,224 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<form  th:action="@{'/members/' + ${action4}}" method= "post" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Edit Projects</title>
 
-    <input type=hidden th:value="${member.id}" name= "id" th:if="${action4.equals('save4')}"/>
+        <!-- inheriting bootstrap classes and nav styles -->
+        <link th:replace="~{fragments/navbar :: nav_style}">
 
-    <label for="inputFirstname">inputFirstname: </label>
-    <input type="text" id="inputFirstname" name= "firstname" th:if="${action4.equals('insert4')}"/>
-    <input type="text" id="inputFirstname" name= "firstname" th:value="${member.firstname}" th:if="${action4.equals('save4')}"/>
+        <!-- inheriting table styling -->
+        <link rel="stylesheet" href="table_style.css">
+    </head>
+    <body>
+        <!-- inheriting navbar -->
+        <div th:replace="~{fragments/navbar :: navbar}"></div>
 
-    <label for="inputLastname">inputLastname: </label>
-    <input type="text" id="inputLastname" name= "lastname" th:if="${action4.equals('insert4')}"/>
-    <input type="text" id="inputLastname" name= "lastname" th:value="${member.lastname}" th:if="${action4.equals('save4')}"/>
+        <div class="container edit_div">
+            <div class="container form_div">
+                <form  th:action="@{'/members/' + ${action4}}" method= "post" >
 
-    <label for="inputCompany">inputCompany: </label>
-    <input type="text" id="inputCompany" name= "company" th:if="${action4.equals('insert4')}"/>
-    <input type="text" id="inputCompany" name= "company" th:value="${member.company}" th:if="${action4.equals('save4')}"/>
+                    <div class="form-group">
+                        <input type=hidden th:value="${member.id}" name= "id" th:if="${action4.equals('save4')}"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputFirstname">First Name </label>
+                        <input class="form-control" type="text" id="inputFirstname" name= "firstname" th:if="${action4.equals('insert4')}"/>
+                        <input class="form-control" type="text" id="inputFirstname" name= "firstname" th:value="${member.firstname}" th:if="${action4.equals('save4')}"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputLastname">Last Name </label>
+                        <input class="form-control" type="text" id="inputLastname" name= "lastname" th:if="${action4.equals('insert4')}"/>
+                        <input class="form-control" type="text" id="inputLastname" name= "lastname" th:value="${member.lastname}" th:if="${action4.equals('save4')}"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputCompany">Company </label>
+                        <input class="form-control" type="text" id="inputCompany" name= "company" th:if="${action4.equals('insert4')}"/>
+                        <input class="form-control" type="text" id="inputCompany" name= "company" th:value="${member.company}" th:if="${action4.equals('save4')}"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputBranch">Branch </label>
+                        <input class="form-control" type="text" id="inputBranch" name= "branch" th:if="${action4.equals('insert4')}"/>
+                        <input class="form-control" type="text" id="inputBranch" name= "branch" th:value="${member.branch}" th:if="${action4.equals('save4')}"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAddress">Address </label>
+                        <input class="form-control" type="text" id="inputAddress" name= "address" th:if="${action4.equals('insert4')}"/>
+                        <input class="form-control" type="text" id="inputAddress" name= "address" th:value="${member.address}" th:if="${action4.equals('save4')}"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputCompanyposition">Company Positioon </label>
+                        <input class="form-control" type="text" id="inputCompanyposition" name= "companyposition" th:if="${action4.equals('insert4')}"/>
+                        <input class="form-control" type="text" id="inputCompanyposition" name= "companyposition" th:value="${member.companyposition}" th:if="${action4.equals('save4')}"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputDateofbirth">Date Of Birth </label>
+                        <input class="form-control" type="text" id="inputDateofbirth" name= "dateofbirth" th:if="${action4.equals('insert4')}"/>
+                        <input class="form-control" type="text" id="inputDateofbirth" name= "dateofbirth" th:value="${member.dateofbirth}" th:if="${action4.equals('save4')}"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputDateofjoiningcompany">Date of joining company </label>
+                        <input class="form-control" type="text" id="inputDateofjoiningcompany" name= "dateofjoiningcompany" th:if="${action4.equals('insert4')}"/>
+                        <input class="form-control" type="text" id="inputDateofjoiningcompany" name= "dateofjoiningcompany" th:value="${member.dateofjoiningcompany}" th:if="${action4.equals('save4')}"/>
+                    </div>
+                    <div class="form-group">
+                        <input class="btn add-button" type="submit" value="Add" th:if="${action4.equals('insert4')}"/>
+                        <input class="btn edit-button" type="submit" value="Edit" th:if="${action4.equals('save4')}"/>
+                    </div>
+                </form>
+            </div>
+            <div class="container">
+                <img class="sidwimg" src="https://img.freepik.com/free-vector/server-concept-illustration_114360-287.jpg?w=1060&t=st=1670152835~exp=1670153435~hmac=be7d49a38c617973f0b094e20ec802607ba7e6963aac337a0d1ca92f811c11e1">
+            </div>
+        </div>
 
-    <label for="inputBranch">inputBranch: </label>
-    <input type="text" id="inputBranch" name= "branch" th:if="${action4.equals('insert4')}"/>
-    <input type="text" id="inputBranch" name= "branch" th:value="${member.branch}" th:if="${action4.equals('save4')}"/>
+        <!-- inheriting footer -->
+        <div th:replace="~{fragments/footer :: footer}"></div>
 
-    <label for="inputAddress">inputAddress: </label>
-    <input type="text" id="inputAddress" name= "address" th:if="${action4.equals('insert4')}"/>
-    <input type="text" id="inputAddress" name= "address" th:value="${member.address}" th:if="${action4.equals('save4')}"/>
+        <!-- inheriting style scripts -->
+        <script th:replace="~{fragments/navbar :: script}"></script>
+    </body>
 
-    <label for="inputCompanyposition">inputCompanyposition: </label>
-    <input type="text" id="inputCompanyposition" name= "companyposition" th:if="${action4.equals('insert4')}"/>
-    <input type="text" id="inputCompanyposition" name= "companyposition" th:value="${member.companyposition}" th:if="${action4.equals('save4')}"/>
+    <style>
+.form_div{
+    padding: 40px;
+}
+.edit_div{
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    /* width */
+::-webkit-scrollbar {
+    width: 6px;
+  }
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #bfdeff;
+  }
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #80bdff;
+  }
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
 
-    <label for="inputDateofbirth">inputDateofbirth: </label>
-    <input type="text" id="inputDateofbirth" name= "dateofbirth" th:if="${action4.equals('insert4')}"/>
-    <input type="text" id="inputDateofbirth" name= "dateofbirth" th:value="${member.dateofbirth}" th:if="${action4.equals('save4')}"/>
+.navbar{
+    padding-left: 10%;
+    padding-right: 10%;
+    box-shadow: 0 8px 40px -6px rgb(118, 200, 255);
+}
 
-    <label for="inputDateofjoiningcompany">inputDateofjoiningcompany: </label>
-    <input type="text" id="inputDateofjoiningcompany" name= "dateofjoiningcompany" th:if="${action4.equals('insert4')}"/>
-    <input type="text" id="inputDateofjoiningcompany" name= "dateofjoiningcompany" th:value="${member.dateofjoiningcompany}" th:if="${action4.equals('save4')}"/>
+.navbar-nav{
+    width: 100%;
+}
 
+.link-nav-custom{
+    border-bottom: solid;
+    border-color: #007bff;
+    border-bottom-width: 2px;
+}
+.link-nav-custom:hover{
+    border-bottom: solid;
+    border-bottom-width: 2px;
+    border-color: #f0f8ff;
+    transition: 0.3s;
+}
 
-    <input type="submit" value="Add" th:if="${action4.equals('insert4')}"/>
-    <input type="submit" value="Edit" th:if="${action4.equals('save4')}"/>
+.app-button-main{
+    font-weight: bold;
+    margin-right: 12px;
+    background-color: #f0f8ff;
+    color: #007bff;
+}
 
-</form>
-</body>
+.app-button-main:hover{
+    font-weight: bold;
+    margin-right: 12px;
+    background-color: #f0f8ff;
+    color: #007bff;
+    border-width: 10px;
+    border-color: aliceblue;
+}
+
+.bottom-div{
+    background-color: #007bff;
+    height: 22vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .bottom-div{
+    color: aliceblue;
+  }
+  h3{
+    padding-top: 2vh;
+  }
+  .text-contact-us{
+    font-size: small;
+    margin-bottom: 0px;
+  }
+
+  .footer-columns{
+    height: 20vh;
+    font-size: 4vh;
+    border-right: #ffffff80 solid 0.1px;
+  }
+  .footer-bottom{
+    width: 100%;
+    padding: 1vh;
+    background-color: #007bff;
+    height: auto;
+  }
+  .footer-bottom-child{
+    font-size: small;
+    padding-top: 1vh;
+    color: aliceblue;
+    border-top: #ffffff80 solid 0.1px;
+  }
+  .footer-bottom-links{
+    color: aliceblue;
+  }
+  .footer-bottom-links:hover{
+    color: aliceblue;
+  }
+  .fbl{
+    padding-left: 2vh;
+    margin-left: 2vh;
+    border-left: #ffffff solid 1px;
+  }
+  .sidwft{
+    width: 40%;
+  }
+  .div-sidwft{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .edit-button{
+      border: 1px solid #0073ff;
+      background-color: #FFFFFF;
+      border-radius: 4px;
+      color: #0073ff;
+  }
+  .edit-button:hover{
+      color: aliceblue;
+      background-color: #0073ff;
+      transition: 0.3s;
+  }
+
+  .add-button{
+      color: aliceblue;
+      background-color: #00aa41;
+  }
+  .sidwimg{
+      position: relative;
+      max-width: 120%;
+  }
+</style>
 </html>

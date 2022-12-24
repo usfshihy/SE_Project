@@ -1,45 +1,217 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <head>
+        <meta charset="UTF-8">
+        <title>Edit Jobs</title>
+
+        <!-- inheriting bootstrap classes and nav styles -->
+        <link th:replace="~{fragments/navbar :: nav_style}">
+
+        <!-- inheriting table styling -->
+        <link rel="stylesheet" href="table_style.css">
 </head>
-<body>
-<form  th:action="@{'/jobs/' + ${action6}}" method= "post" >
+    <body>
+        <!-- inheriting navbar -->
+        <div th:replace="~{fragments/navbar :: navbar}"></div>
+        <div class="container edit_div">
+            <div class="container form_div">
+                <form  th:action="@{'/jobs/' + ${action6}}" method= "post" >
+                    <div class="form-group">
+                        <input type=hidden th:value="${job.id}" name= "id" th:if="${action6.equals('save6')}"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputJobname">Job Name </label>
+                        <input class="form-control" type="text" id="inputJobname" name= "jobname" th:if="${action6.equals('insert6')}"/>
+                        <input class="form-control" type="text" id="inputJobname" name= "jobname" th:value="${job.jobname}" th:if="${action6.equals('save6')}"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputJobdesc">Job Description </label>
+                        <input class="form-control" type="text" id="inputJobdesc" name= "jobdesc" th:if="${action6.equals('insert6')}"/>
+                        <input class="form-control" type="text" id="inputJobdesc" name= "jobdesc" th:value="${job.jobdesc}" th:if="${action6.equals('save6')}"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputAssignedworkerid">Assigned Worker ID </label>
+                        <input class="form-control" type="text" id="inputAssignedworkerid" name= "assignedworkerid" th:if="${action6.equals('insert6')}"/>
+                        <input class="form-control" type="text" id="inputAssignedworkerid" name= "assignedworkerid" th:value="${job.assignedworkerid}" th:if="${action6.equals('save6')}"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPriority">Priority </label>
+                        <input class="form-control" type="text" id="inputPriority" name= "priority" th:if="${action6.equals('insert6')}"/>
+                        <input class="form-control" type="text" id="inputPriority" name= "priority" th:value="${job.priority}" th:if="${action6.equals('save6')}"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputDuedate">Due Date </label>
+                        <input class="form-control" type="text" id="inputDuedate" name= "duedate" th:if="${action6.equals('insert6')}"/>
+                        <input class="form-control" type="text" id="inputDuedate" name= "duedate" th:value="${job.duedate}" th:if="${action6.equals('save6')}"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPhaseid">Phase ID</label>
+                        <input class="form-control" type="text" id="inputPhaseid" name= "phaseid" th:if="${action6.equals('insert6')}"/>
+                        <input class="form-control" type="text" id="inputPhaseid" name= "phaseid" th:value="${job.phaseid}" th:if="${action6.equals('save6')}"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputComplete">Complete </label>
+                        <input class="form-control" type="text" id="inputComplete" name= "complete" th:if="${action6.equals('insert6')}"/>
+                        <input class="form-control" type="text" id="inputComplete" name= "complete" th:value="${job.complete}" th:if="${action6.equals('save6')}"/>
+                    </div>
+                    <div class="form-group">
+                        <input class="btn add-button"  type="submit" value="Add" th:if="${action6.equals('insert6')}"/>
+                        <input class="btn edit-button" type="submit" value="Edit" th:if="${action6.equals('save6')}"/>
+                    </div>
+                </form>
+            </div>
+            <div class="container">
+                <img class="sidwimg" src="https://img.freepik.com/free-vector/server-concept-illustration_114360-287.jpg?w=1060&t=st=1670152835~exp=1670153435~hmac=be7d49a38c617973f0b094e20ec802607ba7e6963aac337a0d1ca92f811c11e1">
+            </div>
+        </div>
 
-    <input type=hidden th:value="${job.id}" name= "id" th:if="${action6.equals('save6')}"/>
+        <!-- inheriting footer -->
+        <div th:replace="~{fragments/footer :: footer}"></div>
 
-    <label for="inputJobname">Jobname: </label>
-    <input type="text" id="inputJobname" name= "jobname" th:if="${action6.equals('insert6')}"/>
-    <input type="text" id="inputJobname" name= "jobname" th:value="${job.jobname}" th:if="${action6.equals('save6')}"/>
+        <!-- inheriting style scripts -->
+        <script th:replace="~{fragments/navbar :: script}"></script>
+    </body>
 
-    <label for="inputJobdesc">Jobdesc: </label>
-    <input type="text" id="inputJobdesc" name= "jobdesc" th:if="${action6.equals('insert6')}"/>
-    <input type="text" id="inputJobdesc" name= "jobdesc" th:value="${job.jobdesc}" th:if="${action6.equals('save6')}"/>
+    <style>
+.form_div{
+    padding: 40px;
+}
+.edit_div{
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    /* width */
+::-webkit-scrollbar {
+    width: 6px;
+  }
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #bfdeff;
+  }
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #80bdff;
+  }
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
 
-    <label for="inputAssignedworkerid">Assignedworkerid: </label>
-    <input type="text" id="inputAssignedworkerid" name= "assignedworkerid" th:if="${action6.equals('insert6')}"/>
-    <input type="text" id="inputAssignedworkerid" name= "assignedworkerid" th:value="${job.assignedworkerid}" th:if="${action6.equals('save6')}"/>
+.navbar{
+    padding-left: 10%;
+    padding-right: 10%;
+    box-shadow: 0 8px 40px -6px rgb(118, 200, 255);
+}
 
-    <label for="inputPriority">Priority: </label>
-    <input type="text" id="inputPriority" name= "priority" th:if="${action6.equals('insert6')}"/>
-    <input type="text" id="inputPriority" name= "priority" th:value="${job.priority}" th:if="${action6.equals('save6')}"/>
+.navbar-nav{
+    width: 100%;
+}
 
-    <label for="inputDuedate">Duedate: </label>
-    <input type="text" id="inputDuedate" name= "duedate" th:if="${action6.equals('insert6')}"/>
-    <input type="text" id="inputDuedate" name= "duedate" th:value="${job.duedate}" th:if="${action6.equals('save6')}"/>
+.link-nav-custom{
+    border-bottom: solid;
+    border-color: #007bff;
+    border-bottom-width: 2px;
+}
+.link-nav-custom:hover{
+    border-bottom: solid;
+    border-bottom-width: 2px;
+    border-color: #f0f8ff;
+    transition: 0.3s;
+}
 
-    <label for="inputPhaseid">Phaseid: </label>
-    <input type="text" id="inputPhaseid" name= "phaseid" th:if="${action6.equals('insert6')}"/>
-    <input type="text" id="inputPhaseid" name= "phaseid" th:value="${job.phaseid}" th:if="${action6.equals('save6')}"/>
+.app-button-main{
+    font-weight: bold;
+    margin-right: 12px;
+    background-color: #f0f8ff;
+    color: #007bff;
+}
 
-    <label for="inputComplete">Complete: </label>
-    <input type="text" id="inputComplete" name= "complete" th:if="${action6.equals('insert6')}"/>
-    <input type="text" id="inputComplete" name= "complete" th:value="${job.complete}" th:if="${action6.equals('save6')}"/>
+.app-button-main:hover{
+    font-weight: bold;
+    margin-right: 12px;
+    background-color: #f0f8ff;
+    color: #007bff;
+    border-width: 10px;
+    border-color: aliceblue;
+}
 
-    <input type="submit" value="Add" th:if="${action6.equals('insert6')}"/>
-    <input type="submit" value="Edit" th:if="${action6.equals('save6')}"/>
+.bottom-div{
+    background-color: #007bff;
+    height: 22vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-</form>
-</body>
+  .bottom-div{
+    color: aliceblue;
+  }
+  h3{
+    padding-top: 2vh;
+  }
+  .text-contact-us{
+    font-size: small;
+    margin-bottom: 0px;
+  }
+
+  .footer-columns{
+    height: 20vh;
+    font-size: 4vh;
+    border-right: #ffffff80 solid 0.1px;
+  }
+  .footer-bottom{
+    width: 100%;
+    padding: 1vh;
+    background-color: #007bff;
+    height: auto;
+  }
+  .footer-bottom-child{
+    font-size: small;
+    padding-top: 1vh;
+    color: aliceblue;
+    border-top: #ffffff80 solid 0.1px;
+  }
+  .footer-bottom-links{
+    color: aliceblue;
+  }
+  .footer-bottom-links:hover{
+    color: aliceblue;
+  }
+  .fbl{
+    padding-left: 2vh;
+    margin-left: 2vh;
+    border-left: #ffffff solid 1px;
+  }
+  .sidwft{
+    width: 40%;
+  }
+  .div-sidwft{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .edit-button{
+      border: 1px solid #0073ff;
+      background-color: #FFFFFF;
+      border-radius: 4px;
+      color: #0073ff;
+  }
+  .edit-button:hover{
+      color: aliceblue;
+      background-color: #0073ff;
+      transition: 0.3s;
+  }
+
+  .add-button{
+      color: aliceblue;
+      background-color: #00aa41;
+  }
+  .sidwimg{
+      position: relative;
+      max-width: 120%;
+  }
+</style>
 </html>

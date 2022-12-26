@@ -1,42 +1,64 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<table class="phases" border= "2">
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>Phasename</th>
-        <th>Phasedesc</th>
-        <th>Phaseleaderid</th>
-        <th>Teamsize</th>
-        <th>Priority</th>
-        <th>Duedate</th>
-        <th>Processtype</th>
-        <th>Projectid</th>
-        <th>Complete</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="phase : ${phases}">
-        <td th:text="${phase.id}">1</td>
-        <td th:text="${phase.phasename}">Phasename</td>
-        <td th:text="${phase.phasedesc}">Phasedesc</td>
-        <td th:text="${phase.phaseleaderid}">Phaseleaderid</td>
-        <td th:text="${phase.teamsize}">Teamsize</td>
-        <td th:text="${phase.priority}">Priority</td>
-        <td th:text="${phase.duedate}">Duedate</td>
-        <td th:text="${phase.processtype}">Processtype</td>
-        <td th:text="${phase.projectid}">Projectid</td>
-        <td th:text="${phase.complete}">Complete</td>
-        <td> <a th:href="@{phases/edit7(id=${phase.id})}">Edit</a></td>
-    </tr>
-    <td colspan="10" align="right"><a href="/phases/add7">Add</a></td>
-    </tbody>
-</table>
-<a href= "/">On the main</a>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <title>Phase</title>
+
+        <!-- inheriting bootstrap classes and nav styles -->
+        <link th:replace="~{fragments/navbar :: nav_style}">
+
+        <!-- inheriting table styling -->
+        <link rel="stylesheet" href="table_style.css">
+    </head>
+    <body>
+        <!-- inheriting navbar -->
+        <div th:replace="~{fragments/navbar :: navbar}"></div>
+
+
+        <div class="main-page">
+            <div th:replace="~{fragments/navbar :: sidenav}"></div>
+            <div class="container style_table_div">
+                <div>
+                    <table class="table table-striped table-bordered table_style align-middle phases">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="align-middle align-center">ID</th>
+                                <th scope="col" class="align-middle align-center">Phase Name</th>
+                                <th scope="col" class="align-middle align-center">Phase description</th>
+                                <th scope="col" class="align-middle align-center">Phase Leader ID</th>
+                                <th scope="col" class="align-middle align-center">Team Size</th>
+                                <th scope="col" class="align-middle align-center">Priority</th>
+                                <th scope="col" class="align-middle align-center">Due Date</th>
+                                <th scope="col" class="align-middle align-center">Process Type</th>
+                                <th scope="col" class="align-middle align-center">Project ID</th>
+                                <th scope="col" class="align-middle align-center">Complete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="phase : ${phases}">
+                                <td th:text="${phase.id}">1</td>
+                                <td th:text="${phase.phasename}">Phasename</td>
+                                <td th:text="${phase.phasedesc}">Phasedesc</td>
+                                <td th:text="${phase.phaseleaderid}">Phaseleaderid</td>
+                                <td th:text="${phase.teamsize}">Teamsize</td>
+                                <td th:text="${phase.priority}">Priority</td>
+                                <td th:text="${phase.duedate}">Duedate</td>
+                                <td th:text="${phase.processtype}">Processtype</td>
+                                <td th:text="${phase.projectid}">Projectid</td>
+                                <td th:text="${phase.complete}">Complete</td>
+                                <td> <a th:href="@{phases/edit7(id=${phase.id})}" class=" btn edit-button">Edit</a></td>
+                            </tr>
+                            <td colspan="11" align="right"><a href="/phases/add7" class="btn add-button">Add</a></td>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- inheriting footer -->
+        <div th:replace="~{fragments/footer :: footer}"></div>
+
+        <!-- inheriting style scripts -->
+        <script th:replace="~{fragments/navbar :: script}"></script>
+    </body>
 </html>

@@ -2,61 +2,68 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="UTF-8">
-        <title>Edit Jobs</title>
+        <title>Edit Projects</title>
 
         <!-- inheriting bootstrap classes and nav styles -->
         <link th:replace="~{fragments/navbar :: nav_style}">
 
         <!-- inheriting table styling -->
         <link rel="stylesheet" href="table_style.css">
-</head>
+    </head>
     <body>
         <!-- inheriting navbar -->
         <div th:replace="~{fragments/navbar :: navbar}"></div>
+
         <div class="container edit_div">
             <div class="container form_div">
-                <form  th:action="@{'/jobs/' + ${action6}}" method= "post" >
+                <form  th:action="@{'/members/' + ${action4}}" method= "post" >
+
                     <div class="form-group">
-                        <input type=hidden th:value="${job.id}" name= "id" th:if="${action6.equals('save6')}"/>
+                        <input type=hidden th:value="${member.id}" name= "id" th:if="${action4.equals('save4')}"/>
                     </div>
                     <div class="form-group">
-                        <label for="inputJobname">Job Name </label>
-                        <input class="form-control" type="text" id="inputJobname" name= "jobname" th:if="${action6.equals('insert6')}"/>
-                        <input class="form-control" type="text" id="inputJobname" name= "jobname" th:value="${job.jobname}" th:if="${action6.equals('save6')}"/>
+                        <label for="inputFirstname">First Name </label>
+                        <input class="form-control" type="text" id="inputFirstname" name= "firstname" th:if="${action4.equals('insert4')}"/>
+                        <input class="form-control" type="text" id="inputFirstname" name= "firstname" th:value="${member.firstname}" th:if="${action4.equals('save4')}"/>
                     </div>
                     <div class="form-group">
-                        <label for="inputJobdesc">Job Description </label>
-                        <input class="form-control" type="text" id="inputJobdesc" name= "jobdesc" th:if="${action6.equals('insert6')}"/>
-                        <input class="form-control" type="text" id="inputJobdesc" name= "jobdesc" th:value="${job.jobdesc}" th:if="${action6.equals('save6')}"/>
+                        <label for="inputLastname">Last Name </label>
+                        <input class="form-control" type="text" id="inputLastname" name= "lastname" th:if="${action4.equals('insert4')}"/>
+                        <input class="form-control" type="text" id="inputLastname" name= "lastname" th:value="${member.lastname}" th:if="${action4.equals('save4')}"/>
                     </div>
                     <div class="form-group">
-                        <label for="inputAssignedworkerid">Assigned Worker ID </label>
-                        <input class="form-control" type="text" id="inputAssignedworkerid" name= "assignedworkerid" th:if="${action6.equals('insert6')}"/>
-                        <input class="form-control" type="text" id="inputAssignedworkerid" name= "assignedworkerid" th:value="${job.assignedworkerid}" th:if="${action6.equals('save6')}"/>
+                        <label for="inputCompany">Company </label>
+                        <input class="form-control" type="text" id="inputCompany" name= "company" th:if="${action4.equals('insert4')}"/>
+                        <input class="form-control" type="text" id="inputCompany" name= "company" th:value="${member.company}" th:if="${action4.equals('save4')}"/>
                     </div>
                     <div class="form-group">
-                        <label for="inputPriority">Priority </label>
-                        <input class="form-control" type="text" id="inputPriority" name= "priority" th:if="${action6.equals('insert6')}"/>
-                        <input class="form-control" type="text" id="inputPriority" name= "priority" th:value="${job.priority}" th:if="${action6.equals('save6')}"/>
+                        <label for="inputBranch">Branch </label>
+                        <input class="form-control" type="text" id="inputBranch" name= "branch" th:if="${action4.equals('insert4')}"/>
+                        <input class="form-control" type="text" id="inputBranch" name= "branch" th:value="${member.branch}" th:if="${action4.equals('save4')}"/>
                     </div>
                     <div class="form-group">
-                        <label for="inputDuedate">Due Date </label>
-                        <input class="form-control" type="text" id="inputDuedate" name= "duedate" th:if="${action6.equals('insert6')}"/>
-                        <input class="form-control" type="text" id="inputDuedate" name= "duedate" th:value="${job.duedate}" th:if="${action6.equals('save6')}"/>
+                        <label for="inputAddress">Address </label>
+                        <input class="form-control" type="text" id="inputAddress" name= "address" th:if="${action4.equals('insert4')}"/>
+                        <input class="form-control" type="text" id="inputAddress" name= "address" th:value="${member.address}" th:if="${action4.equals('save4')}"/>
                     </div>
                     <div class="form-group">
-                        <label for="inputPhaseid">Phase ID</label>
-                        <input class="form-control" type="text" id="inputPhaseid" name= "phaseid" th:if="${action6.equals('insert6')}"/>
-                        <input class="form-control" type="text" id="inputPhaseid" name= "phaseid" th:value="${job.phaseid}" th:if="${action6.equals('save6')}"/>
+                        <label for="inputCompanyposition">Company Positioon </label>
+                        <input class="form-control" type="text" id="inputCompanyposition" name= "companyposition" th:if="${action4.equals('insert4')}"/>
+                        <input class="form-control" type="text" id="inputCompanyposition" name= "companyposition" th:value="${member.companyposition}" th:if="${action4.equals('save4')}"/>
                     </div>
                     <div class="form-group">
-                        <label for="inputComplete">Complete </label>
-                        <input class="form-control" type="text" id="inputComplete" name= "complete" th:if="${action6.equals('insert6')}"/>
-                        <input class="form-control" type="text" id="inputComplete" name= "complete" th:value="${job.complete}" th:if="${action6.equals('save6')}"/>
+                        <label for="inputDateofbirth">Date Of Birth </label>
+                        <input class="form-control" type="text" id="inputDateofbirth" name= "dateofbirth" th:if="${action4.equals('insert4')}"/>
+                        <input class="form-control" type="text" id="inputDateofbirth" name= "dateofbirth" th:value="${member.dateofbirth}" th:if="${action4.equals('save4')}"/>
                     </div>
                     <div class="form-group">
-                        <input class="btn add-button"  type="submit" value="Add" th:if="${action6.equals('insert6')}"/>
-                        <input class="btn edit-button" type="submit" value="Edit" th:if="${action6.equals('save6')}"/>
+                        <label for="inputDateofjoiningcompany">Date of joining company </label>
+                        <input class="form-control" type="text" id="inputDateofjoiningcompany" name= "dateofjoiningcompany" th:if="${action4.equals('insert4')}"/>
+                        <input class="form-control" type="text" id="inputDateofjoiningcompany" name= "dateofjoiningcompany" th:value="${member.dateofjoiningcompany}" th:if="${action4.equals('save4')}"/>
+                    </div>
+                    <div class="form-group">
+                        <input class="btn add-button" type="submit" value="Add" th:if="${action4.equals('insert4')}"/>
+                        <input class="btn edit-button" type="submit" value="Edit" th:if="${action4.equals('save4')}"/>
                     </div>
                 </form>
             </div>

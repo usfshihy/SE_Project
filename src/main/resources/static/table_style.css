@@ -1,0 +1,39 @@
+.style_table_div{
+    min-height: 100vh;
+    display: flex;
+    align-items:center;
+}
+
+.main-page{
+    height: 100vh;
+    display: flex
+}
+
+.table_style{
+    margin-top: 40px;
+    margin-bottom: 40px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+th{
+    text-align: center;
+}
+
+.edit-button{
+    border: 1px solid #0073ff;
+    border-radius: 4px;
+    color: #0073ff;
+}
+.edit-button:hover{
+    color: aliceblue;
+    background-color: #0073ff;
+    transition: 0.3s;
+}
+
+.add-button{
+    color: aliceblue;
+    background-color: #00aa41;
+}
+
+.mainpage

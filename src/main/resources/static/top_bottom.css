@@ -1,0 +1,136 @@
+/* width */
+::-webkit-scrollbar {
+    width: 6px;
+  }
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #bfdeff;
+  }
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #80bdff;
+  }
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+.navbar{
+    padding-left: 10%;
+    padding-right: 10%;
+    box-shadow: 0 8px 40px -6px rgb(118, 200, 255);
+}
+
+.navbar-nav{
+    width: 100%;
+}
+
+.link-nav-custom{
+    border-bottom: solid;
+    border-color: #007bff;
+    border-bottom-width: 2px;
+}
+.link-nav-custom:hover{
+    border-bottom: solid;
+    border-bottom-width: 2px;
+    border-color: #f0f8ff;
+    transition: 0.3s;
+}
+
+.app-button-main{
+    font-weight: bold;
+    margin-right: 12px;
+    background-color: #f0f8ff;
+    color: #007bff;
+}
+
+.app-button-main:hover{
+    font-weight: bold;
+    margin-right: 12px;
+    background-color: #f0f8ff;
+    color: #007bff;
+    border-width: 10px;
+    border-color: aliceblue;
+}
+
+.bottom-div{
+    background-color: #007bff;
+    height: 22vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .bottom-div{
+    color: aliceblue;
+  }
+  h3{
+    padding-top: 2vh;
+  }
+  .text-contact-us{
+    font-size: small;
+    margin-bottom: 0px;
+  }
+
+  .footer-columns{
+    height: 20vh;
+    font-size: 4vh;
+    border-right: #ffffff80 solid 0.1px;
+  }
+  .footer-bottom{
+    width: 100%;
+    padding: 1vh;
+    background-color: #007bff;
+    height: auto;
+  }
+  .footer-bottom-child{
+    font-size: small;
+    padding-top: 1vh;
+    color: aliceblue;
+    border-top: #ffffff80 solid 0.1px;
+  }
+  .footer-bottom-links{
+    color: aliceblue;
+  }
+  .footer-bottom-links:hover{
+    color: aliceblue;
+  }
+  .fbl{
+    padding-left: 2vh;
+    margin-left: 2vh;
+    border-left: #ffffff solid 1px;
+  }
+  .sidwft{
+    width: 40%;
+  }
+  .div-sidwft{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .side_nav{
+       background-color: #FFFFFF;
+       box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
+       height: 100%;
+       width: auto;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+   }
+
+   .dash_board_buttons{
+       width: 200px;
+       background-color: aliceblue;
+       text-align: left;
+       margin-top:10px;
+       margin-bottom:10px;
+       margin-left:20px;
+       margin-right:20px;
+       color: #007bff;
+   }
+   .dash_board_buttons:hover{
+      background-color: #007bff;
+      color: aliceblue;
+      transition: 0.1s;
+   }

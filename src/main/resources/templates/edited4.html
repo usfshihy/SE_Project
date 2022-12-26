@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
     <head>
         <meta charset="UTF-8">
-        <title>Title</title>
+        <title>Edited Projects</title>
 
         <!-- inheriting bootstrap classes and nav styles -->
         <link th:replace="~{fragments/navbar :: nav_style}">
@@ -16,10 +16,12 @@
 
         <div class="container edit_div">
             <div class="container form_div">
-                <p1 th:text="${job.jobname} +' ' + ${job.jobdesc} +' ' + ${job.assignedworkerid} +' ' + ${job.priority}
-                    +' ' + ${job.duedate} +' ' + ${job.phaseid} +' ' + ${job.complete} + ' updated!'" th:if="${action6.equals('insert6')}">updated></p1>
-                <p1 th:text="${job.jobname} +' ' + ${job.jobdesc} +' ' + ${job.assignedworkerid} +' ' + ${job.priority}
-                    +' ' + ${job.duedate} +' ' + ${job.phaseid} +' ' + ${job.complete} + ' added!'" th:if="${action6.equals('save6')}">added></p1>
+                <p1 th:text="${member.firstname} +' ' + ${member.lastname} +' ' + ${member.company} +' ' + ${member.branch}
+                    +' ' + ${member.address} +' ' + ${member.companyposition} +' ' + ${member.dateofbirth} +' ' + ${member.dateofjoiningcompany}
+                     + ' updated!'" th:if="${action4.equals('insert4')}">updated></p1>
+                <p1 th:text="${member.firstname} +' ' + ${member.lastname} +' ' + ${member.company} +' ' + ${member.branch}
+                    +' ' + ${member.address} +' ' + ${member.companyposition} +' ' + ${member.dateofbirth} +' ' + ${member.dateofjoiningcompany}
+                     + ' added!'" th:if="${action4.equals('save4')}">added></p1>
             </div>
             <div class="container">
                 <img class="sidwimg" src="https://img.freepik.com/free-vector/server-concept-illustration_114360-287.jpg?w=1060&t=st=1670152835~exp=1670153435~hmac=be7d49a38c617973f0b094e20ec802607ba7e6963aac337a0d1ca92f811c11e1">

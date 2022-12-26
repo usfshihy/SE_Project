@@ -1,41 +1,213 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<form  th:action="@{'/inspectors/' + ${action8}}" method= "post" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Edit Inspectors</title>
 
-    <input type=hidden th:value="${inspector.id}" name= "id" th:if="${action8.equals('save8')}"/>
+        <!-- inheriting bootstrap classes and nav styles -->
+        <link th:replace="~{fragments/navbar :: nav_style}">
 
-    <label for="inputMajord">Majord: </label>
-    <input type="text" id="inputMajord" name= "majord" th:if="${action8.equals('insert8')}"/>
-    <input type="text" id="inputMajord" name= "majord" th:value="${inspector.majord}" th:if="${action8.equals('save8')}"/>
+        <!-- inheriting table styling -->
+        <link rel="stylesheet" href="table_style.css">
+    </head>
+    <body>
+        <!-- inheriting navbar -->
+        <div th:replace="~{fragments/navbar :: navbar}"></div>
+        <div class="container edit_div">
+            <div class="container form_div">
+                <form  th:action="@{'/inspectors/' + ${action8}}" method= "post" >
+                    <div class="form-group">
+                        <input type=hidden th:value="${inspector.id}" name= "id" th:if="${action8.equals('save8')}"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputMajord">Major Defect</label>
+                        <input class="form-control" type="text" id="inputMajord" name= "majord" th:if="${action8.equals('insert8')}"/>
+                        <input class="form-control" type="text" id="inputMajord" name= "majord" th:value="${inspector.majord}" th:if="${action8.equals('save8')}"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputMinord">Minor Defect</label>
+                        <input class="form-control" type="text" id="inputMinord" name= "minord" th:if="${action8.equals('insert8')}"/>
+                        <input class="form-control" type="text" id="inputMinord" name= "minord" th:value="${inspector.minord}" th:if="${action8.equals('save8')}"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPdsize">Preparation Data Size</label>
+                        <input class="form-control" type="text" id="inputPdsize" name= "pdsize" th:if="${action8.equals('insert8')}"/>
+                        <input class="form-control" type="text" id="inputPdsize" name= "pdsize" th:value="${inspector.pdsize}" th:if="${action8.equals('save8')}"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPdtime">Preparation Data Time</label>
+                        <input class="form-control" type="text" id="inputPdtime" name= "pdtime" th:if="${action8.equals('insert8')}"/>
+                        <input class="form-control" type="text" id="inputPdtime" name= "pdtime" th:value="${inspector.pdtime}" th:if="${action8.equals('save8')}"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPdrate">Preparation Data Rate</label>
+                        <input class="form-control" type="text" id="inputPdrate" name= "pdrate" th:if="${action8.equals('insert8')}"/>
+                        <input class="form-control" type="text" id="inputPdrate" name= "pdrate" th:value="${inspector.pdrate}" th:if="${action8.equals('save8')}"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEstyield">Estimated Yield</label>
+                        <input class="form-control" type="text" id="inputEstyield" name= "estyield" th:if="${action8.equals('insert8')}"/>
+                        <input class="form-control" type="text" id="inputEstyield" name= "estyield" th:value="${inspector.estyield}" th:if="${action8.equals('save8')}"/>
+                    </div>
+                    <div class="form-group">
+                        <input class="btn add-button" type="submit" value="Add" th:if="${action8.equals('insert8')}"/>
+                        <input class="btn edit-button" type="submit" value="Edit" th:if="${action8.equals('save8')}"/>
+                    </div>
+                </form>
+            </div>
+            <div class="container">
+                <img class="sidwimg" src="https://img.freepik.com/free-vector/server-concept-illustration_114360-287.jpg?w=1060&t=st=1670152835~exp=1670153435~hmac=be7d49a38c617973f0b094e20ec802607ba7e6963aac337a0d1ca92f811c11e1">
+            </div>
+        </div>
 
-    <label for="inputMinord">Minord: </label>
-    <input type="text" id="inputMinord" name= "minord" th:if="${action8.equals('insert8')}"/>
-    <input type="text" id="inputMinord" name= "minord" th:value="${inspector.minord}" th:if="${action8.equals('save8')}"/>
 
-    <label for="inputPdsize">Pdsize: </label>
-    <input type="text" id="inputPdsize" name= "pdsize" th:if="${action8.equals('insert8')}"/>
-    <input type="text" id="inputPdsize" name= "pdsize" th:value="${inspector.pdsize}" th:if="${action8.equals('save8')}"/>
+        <!-- inheriting footer -->
+        <div th:replace="~{fragments/footer :: footer}"></div>
 
-    <label for="inputPdtime">Pdtime: </label>
-    <input type="text" id="inputPdtime" name= "pdtime" th:if="${action8.equals('insert8')}"/>
-    <input type="text" id="inputPdtime" name= "pdtime" th:value="${inspector.pdtime}" th:if="${action8.equals('save8')}"/>
+        <!-- inheriting style scripts -->
+        <script th:replace="~{fragments/navbar :: script}"></script>
+    </body>
 
-    <label for="inputPdrate">Pdrate: </label>
-    <input type="text" id="inputPdrate" name= "pdrate" th:if="${action8.equals('insert8')}"/>
-    <input type="text" id="inputPdrate" name= "pdrate" th:value="${inspector.pdrate}" th:if="${action8.equals('save8')}"/>
+    <style>
+.form_div{
+    padding: 40px;
+}
+.edit_div{
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+    /* width */
+::-webkit-scrollbar {
+    width: 6px;
+  }
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #bfdeff;
+  }
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #80bdff;
+  }
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
 
-    <label for="inputEstyield">Estyield: </label>
-    <input type="text" id="inputEstyield" name= "estyield" th:if="${action8.equals('insert8')}"/>
-    <input type="text" id="inputEstyield" name= "estyield" th:value="${inspector.estyield}" th:if="${action8.equals('save8')}"/>
+.navbar{
+    padding-left: 10%;
+    padding-right: 10%;
+    box-shadow: 0 8px 40px -6px rgb(118, 200, 255);
+}
 
-    <input type="submit" value="Add" th:if="${action8.equals('insert8')}"/>
-    <input type="submit" value="Edit" th:if="${action8.equals('save8')}"/>
+.navbar-nav{
+    width: 100%;
+}
 
-</form>
-</body>
+.link-nav-custom{
+    border-bottom: solid;
+    border-color: #007bff;
+    border-bottom-width: 2px;
+}
+.link-nav-custom:hover{
+    border-bottom: solid;
+    border-bottom-width: 2px;
+    border-color: #f0f8ff;
+    transition: 0.3s;
+}
+
+.app-button-main{
+    font-weight: bold;
+    margin-right: 12px;
+    background-color: #f0f8ff;
+    color: #007bff;
+}
+
+.app-button-main:hover{
+    font-weight: bold;
+    margin-right: 12px;
+    background-color: #f0f8ff;
+    color: #007bff;
+    border-width: 10px;
+    border-color: aliceblue;
+}
+
+.bottom-div{
+    background-color: #007bff;
+    height: 22vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .bottom-div{
+    color: aliceblue;
+  }
+  h3{
+    padding-top: 2vh;
+  }
+  .text-contact-us{
+    font-size: small;
+    margin-bottom: 0px;
+  }
+
+  .footer-columns{
+    height: 20vh;
+    font-size: 4vh;
+    border-right: #ffffff80 solid 0.1px;
+  }
+  .footer-bottom{
+    width: 100%;
+    padding: 1vh;
+    background-color: #007bff;
+    height: auto;
+  }
+  .footer-bottom-child{
+    font-size: small;
+    padding-top: 1vh;
+    color: aliceblue;
+    border-top: #ffffff80 solid 0.1px;
+  }
+  .footer-bottom-links{
+    color: aliceblue;
+  }
+  .footer-bottom-links:hover{
+    color: aliceblue;
+  }
+  .fbl{
+    padding-left: 2vh;
+    margin-left: 2vh;
+    border-left: #ffffff solid 1px;
+  }
+  .sidwft{
+    width: 40%;
+  }
+  .div-sidwft{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .edit-button{
+      border: 1px solid #0073ff;
+      background-color: #FFFFFF;
+      border-radius: 4px;
+      color: #0073ff;
+  }
+  .edit-button:hover{
+      color: aliceblue;
+      background-color: #0073ff;
+      transition: 0.3s;
+  }
+
+  .add-button{
+      color: aliceblue;
+      background-color: #00aa41;
+  }
+  .sidwimg{
+      position: relative;
+      max-width: 120%;
+  }
+</style>
 </html>

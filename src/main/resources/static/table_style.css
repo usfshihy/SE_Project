@@ -1,11 +1,11 @@
 .style_table_div{
-    min-height: 100vh;
+    min-height: auto;
     display: flex;
     align-items:center;
 }
 
 .main-page{
-    height: 100vh;
+    height: auto;
     display: flex
 }
 
